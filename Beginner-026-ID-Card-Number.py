@@ -7,7 +7,7 @@ a = {
     'Z': (3, 3)
 }
 n = int(input())
-test = [input().strip() for _ in range(n)]
+test = [input().strip() for i in range(n)]
 
 def validate(id_num):
     if len(id_num) != 10:
