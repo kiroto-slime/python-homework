@@ -1,5 +1,5 @@
 times = int(input())
-inputs = [int(input()) for _ in range(times)]
+inputs = [int(input()) for j in range(times)]
 max_input = max(inputs)
 last_not0 = [1] * (max_input + 1)
 
