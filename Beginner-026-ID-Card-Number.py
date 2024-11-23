@@ -6,30 +6,26 @@ a = {
     'U': (2, 8), 'V': (2, 9), 'W': (3, 2), 'X': (3, 0), 'Y': (3, 1),
     'Z': (3, 3)
 }
-
 n = int(input())
-test_cases = [input().strip() for _ in range(n)]
+test = [input().strip() for _ in range(n)]
 
-def validate_id_number(id_number):
-    if len(id_number) != 10:
+def validate(id_num):
+    if len(id_num) != 10:
         return "F"
-    if id_number[0] not in a:
+    if id_num[0] not in a:
         return "F"
-    if id_number[1] not in '12':
+    if id_num[1] not in '12':
         return "F"
-    if not id_number[2:].isdigit():
+    if not id_num[2:].isdigit():
         return "F"
     # 轉換英文字母為對應的數字
-    region_digits = a[id_number[0]]
+    region_digits = a[id_num[0]]
     n1, n2 = region_digits
     # 將身份證號碼轉換成數字陣列
-    digits = [n1, n2] + [int(c) for c in id_number[1:]]
-    # 加權公式
-    weights = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
-    total = sum(d * w for d, w in zip(digits, weights))
-    # 驗證結果
+    digits = [n1, n2] + [int(c) for c in id_num[1:]]
+    
+    w = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
+    total = sum(d * w for d, w in zip(digits, w))
     return "T" if total % 10 == 0 else "F"
-# 處理每筆測試資料
-results = [validate_id_number(tc) for tc in test_cases]
-# 輸出結果
+results = [validate(tc) for tc in test]
 print("\n".join(results))
