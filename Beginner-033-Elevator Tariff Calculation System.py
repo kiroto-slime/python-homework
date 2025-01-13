@@ -2,7 +2,7 @@ times= int(input())
 for i in range(times):
     up=0
     down=0
-    CPP_= input()
+    C/CPP_= input()
     z= input().split(",")
     for e in range(len(z)-1):
         first= int(z[e])
