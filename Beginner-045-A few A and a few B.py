@@ -15,3 +15,15 @@ for i in range(times):
                     used.add(e)
                     break
     print(f"{A}A{B}B")
+#another
+times=int(input())
+for i in range(times):
+    a,b=input().split(", ")
+    A=0
+    B=0
+    for e in range(len(b)):
+        if a[e]==b[e]:
+            A+=1
+        elif a[e] in b:
+            B+=1
+    print(f"{A}A{B}B")
