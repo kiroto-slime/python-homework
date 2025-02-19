@@ -58,6 +58,9 @@ for _ in range(t):
     elif "/" in a[-3:]:
         c=10
         c+=10 if "X" in a[-1] else int(a[-1])
+    else:
+        c+=int(a[-3])+int(a[-2])
+    print(s+c)
 
 
 #another
