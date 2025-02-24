@@ -36,3 +36,26 @@ for i in range(n):
         s= calc_cardss(e)
         max_s= max(max_s, s)
     print(max_s)
+#another
+from itertools import combinations
+from collections import Counter
+freq2score={(4,1):6,(3,2):5,(3,1,1):3,(2,2,1):2,(2,1,1,1):1,(1,1,1,1,1):0}
+score_map={
+    (f,fl,st):(fl and st)*7+(not(fl and st))*max(freq2score[f],4*fl,4*st)
+    for f in freq2score
+    for fl in [False,True]
+    for st in [False,True]
+}
+t=int(input())
+for _ in range(t):
+    cards=list(map(int,input().split()))
+    best=0
+    for combo in combinations(cards,5):
+        s=[(c-1)//13 for c in combo]
+        r=sorted((c-1)%13+1 for c in combo)
+        fl=len(set(s))==1
+        st=(len(set(r))==5 and r[-1]-r[0]==4)or r==[1,10,11,12,13]
+        freq=tuple(sorted(Counter(r).values(),reverse=True))
+        score=score_map[(freq,fl,st)]
+        if score>best:best=score
+    print(best)
