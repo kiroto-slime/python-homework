@@ -36,6 +36,8 @@ for i in range(n):
         s= calc_cardss(e)
         max_s= max(max_s, s)
     print(max_s)
+
+
 #another
 from itertools import combinations
 from collections import Counter
