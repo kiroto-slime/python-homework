@@ -19,7 +19,7 @@ for i in range(n):
     print(''.join(str(arr[p]) for p in ppos))
  
   
-  #說明
+  #another 說明
   # 讀取第一行，表示後續有 n 筆 16 位元資料
   n = int(input())
   # 預先定義檢查位所在位置（1, 2, 4, 8, 16）
