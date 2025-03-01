@@ -1,9 +1,9 @@
-time = int(input())
-f = [1]
-ftotal = [0]
-inputs = []
+time=int(input())
+f=[1]
+ftotal=[0]
+inputs=[]
 for i in range(time):
-    inp = int(input())
+    inp=int(input())
     if inp<25:
       inputs.append(inp)
     else :
