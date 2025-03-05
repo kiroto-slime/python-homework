@@ -6,11 +6,10 @@ a = {
     'U': (2, 8), 'V': (2, 9), 'W': (3, 2), 'X': (3, 0), 'Y': (3, 1),
     'Z': (3, 3)
 }
-n = int(input())
-test = [input().strip() for i in range(n)]
-
+n=int(input())
+test=[input().strip() for i in range(n)]
 def validate(id_num):
-    if len(id_num) != 10:
+    if len(id_num)!=10:
         return "F"
     if id_num[0] not in a:
         return "F"
@@ -19,13 +18,13 @@ def validate(id_num):
     if not id_num[2:].isdigit():
         return "F"
     # 轉換英文字母為對應的數字
-    region_digits = a[id_num[0]]
-    n1, n2 = region_digits
+    region_digits=a[id_num[0]]
+    n1, n2=region_digits
     # 將身份證號碼轉換成數字陣列
-    digits = [n1, n2] + [int(c) for c in id_num[1:]]
+    digits= n1, n2]+[int(c) for c in id_num[1:]]
     
-    w = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
-    total = sum(d * w for d, w in zip(digits, w))
-    return "T" if total % 10 == 0 else "F"
-results = [validate(tc) for tc in test]
+    w=[1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
+    total=sum(d * w for d, w in zip(digits, w))
+    return "T" if total%10==0 else "F"
+results=[validate(tc) for tc in test]
 print("\n".join(results))
