@@ -5,11 +5,9 @@ def getgrade(c):
     elif c=="X":
         g=10
     return g
-
 spare="/"
 strike="X"
 normal="0123456789"
-
 n=int(input())
 for i in range(n):
     game=input().split()
