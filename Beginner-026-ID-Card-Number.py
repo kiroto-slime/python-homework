@@ -21,7 +21,7 @@ def validate(id_num):
     region_digits=a[id_num[0]]
     n1, n2=region_digits
     # 將身份證號碼轉換成數字陣列
-    digits= n1, n2]+[int(c) for c in id_num[1:]]
+    digits= [n1, n2]+[int(c) for c in id_num[1:]]
     
     w=[1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
     total=sum(d * w for d, w in zip(digits, w))
