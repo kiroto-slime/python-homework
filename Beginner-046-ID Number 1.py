@@ -1,29 +1,20 @@
-a = {
-    'A': (1, 0), 'B': (1, 1), 'C': (1, 2), 'D': (1, 3), 'E': (1, 4),
-    'F': (1, 5), 'G': (1, 6), 'H': (1, 7), 'I': (3, 4), 'J': (1, 8),
-    'K': (1, 9), 'L': (2, 0), 'M': (2, 1), 'N': (2, 2), 'O': (3, 5),
-    'P': (2, 3), 'Q': (2, 4), 'R': (2, 5), 'S': (2, 6), 'T': (2, 7),
-    'U': (2, 8), 'V': (2, 9), 'W': (3, 2), 'X': (3, 0), 'Y': (3, 1),
-    'Z': (3, 3)
+A= {
+    'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14,
+    'F': 15, 'G': 16, 'H': 17, 'I': 34, 'J': 18,
+    'K': 19, 'L': 20, 'M': 21, 'N': 22, 'O': 35,
+    'P': 23, 'Q': 24, 'R': 25, 'S': 26, 'T': 27,
+    'U': 28, 'V': 29, 'W': 32, 'X': 30, 'Y': 31,
+    'Z': 33
 }
-n = int(input())
-test = [input().strip() for i in range(n)]
-
-def validate(id_num):
-    if len(id_num) != 10:
+def id_number(id_str):
+    if (len(id_str)!= 10 or id_str[0] not in A or 
+        id_str[1] not in "12" or not id_str[2:].isdigit()):
         return "0"
-    if id_num[0] not in a:
-        return "0"
-    if id_num[1] not in '12':
-        return "0"
-    if not id_num[2:].isdigit():
-        return "0"
-    region_digits = a[id_num[0]]
-    n1, n2 = region_digits
-    digits = [n1, n2] + [int(c) for c in id_num[1:]]
-    
-    w = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
-    total = sum(d * w for d, w in zip(digits, w))
-    return "1" if total % 10 == 0 else "0"
-results = [validate(tc) for tc in test]
-print("\n".join(results))
+    val= A[id_str[0]]
+    n1, n2= val//10, val%10
+    weights= [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
+    total= n1*weights[0]+n2*weights[1]+sum(int(id_str[i])*weights[i+1] for i in range(1, 10))
+    return "1" if total%10== 0 else "0"
+n= int(input())
+for e in range(n):
+    print(id_number(input().strip()))
