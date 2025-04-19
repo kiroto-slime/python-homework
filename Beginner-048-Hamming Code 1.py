@@ -1,13 +1,19 @@
-def hamming_code(s):
-    x= int(s,16)
-    arr= [0]*21
-    for i in range(16):
-        arr[i + i//4 + 1]= (x>>i)&1
-    for i in range(4, -1, -1):
-        parity= sum(arr[j] for j in range(1, 21) if j & (1<<i))%2
-        arr[1<<i]= parity
-    return ''.join(str(arr[1<<i]) for i in range(5))
-n= int(input())
-for e in range(n):
-    s= input().strip()
-    print(hamming_code(s))
+n=int(input())
+ppos=[1,2,4,8,16]
+for i in range(n):
+    s=input().strip()
+    x=int(s,16)
+    b=bin(x)[2:].zfill(16)
+    arr=[0]*22
+    idx=0
+    for e in range(1,22):
+        if e not in ppos:
+            arr[e]=int(b[idx])
+            idx+=1
+    for p in ppos:
+        sm=0
+        for e in range(1,22):
+            if e&p:
+                sm^=arr[e]
+        arr[p]=sm
+    print(''.join(str(arr[p]) for p in ppos))
