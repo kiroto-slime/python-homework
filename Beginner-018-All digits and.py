@@ -1,8 +1,7 @@
-j = int(input())
-results = []
+j= int(input())
 for i in range(j):
-    nubmer = input()
-    num = 0
+    nubmer= input()
+    num= 0
     for c in nubmer:
-        num = num + int(c)
+        num+= int(c)
     print(num)
