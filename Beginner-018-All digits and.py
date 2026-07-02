@@ -1,7 +1,7 @@
 j= int(input())
 for i in range(j):
-    nubmer= input()
+    number= input()
     num= 0
-    for c in nubmer:
+    for c in number:
         num+= int(c)
     print(num)
